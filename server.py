@@ -6,24 +6,19 @@ import sys
 import aiohttp
 import json
 
+
+
+# Port assignments can be customized here
 ports = {
-    "Riley": 15795,
-    "Jaquez": 15796,
-    "Juzang": 15797,
-    "Campbell": 15798,
-    "Bernard": 15799
+    "Riley": 8000,
+    "Jaquez": 8001,
+    "Juzang": 8002,
+    "Campbell": 8003,
+    "Bernard": 8004
 }
 
-
-# ports = {
-#     "Riley": 8000,
-#     "Jaquez": 8001,
-#     "Juzang": 8002,
-#     "Campbell": 8003,
-#     "Bernard": 8004
-# }
-
-
+# Server adjacency can be customized here
+# These relationships dictate the behavior of the flooding algorithm
 adjacent_servers = {
     "Riley": ["Jaquez", "Juzang"],
     "Jaquez": ["Riley", "Bernard"],
@@ -231,7 +226,7 @@ def is_number(num):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser('CS131 Project Argument Parser')
+    parser = argparse.ArgumentParser('Argument Parser')
     parser.add_argument('server_name', type=str, help='required server name input')
     args = parser.parse_args()
     if args.server_name not in ports:
